@@ -82,17 +82,17 @@ DATA_AGENT = "agent"
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up OpenAI Conversation from a config entry."""
 
-    try:
-        await validate_authentication(
-            hass=hass,
-            api_key=entry.data[CONF_API_KEY],
-            base_url=entry.data.get(CONF_BASE_URL),
-        )
-    except error.AuthenticationError as err:
-        _LOGGER.error("Invalid API key: %s", err)
-        return False
-    except error.OpenAIError as err:
-        raise ConfigEntryNotReady(err) from err
+    #try:
+    #    await validate_authentication(
+    #        hass=hass,
+    #        api_key=entry.data[CONF_API_KEY],
+    #        base_url=entry.data.get(CONF_BASE_URL),
+    #    )
+    #except error.AuthenticationError as err:
+    #    _LOGGER.error("Invalid API key: %s", err)
+    #    return False
+    #except error.OpenAIError as err:
+    #    raise ConfigEntryNotReady(err) from err
 
     agent = OpenAIAgent(hass, entry)
 
