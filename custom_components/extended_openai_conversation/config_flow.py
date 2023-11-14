@@ -82,7 +82,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> None:
         base_url = None
         data.pop(CONF_BASE_URL)
 
-    await validate_authentication(hass=hass, api_key=api_key, base_url=base_url)
+    #await validate_authentication(hass=hass, api_key=api_key, base_url=base_url)
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
