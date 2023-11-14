@@ -264,7 +264,9 @@ class OpenAIAgent(conversation.AbstractConversationAgent):
         response = await openai.ChatCompletion.acreate(
             api_base=self.entry.data.get(CONF_BASE_URL),
             api_key=self.entry.data[CONF_API_KEY],
-            model=model,
+            api_type="azure",
+            api_version = "2023-07-01-preview",
+            engine=model,
             messages=messages,
             max_tokens=max_tokens,
             top_p=top_p,
